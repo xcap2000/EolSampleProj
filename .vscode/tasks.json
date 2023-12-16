@@ -1,0 +1,486 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet build /clp:NoSummary",
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "build clean",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet clean",
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "build restore",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet restore",
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "run",
+            "type": "process",
+            "group": "build",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "run",
+                    "--project",
+                    "${workspaceFolder}\\src\\EolSampleProj\\EolSampleProj.csproj",
+                    "/clp:NoSummary"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "run",
+                    "--project",
+                    "${workspaceFolder}/src/EolSampleProj/EolSampleProj.csproj",
+                    "/clp:NoSummary"
+                ]
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "run (watch)",
+            "type": "process",
+            "group": "build",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\src\\EolSampleProj\\EolSampleProj.csproj",
+                    "run",
+                    "/clp:NoSummary"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}/src/EolSampleProj/EolSampleProj.csproj",
+                    "run",
+                    "/clp:NoSummary"
+                ]
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "pyramid test",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
+                "args": [
+                    "test",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "test",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "pyramid test (mutation)",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\StrykerOutput) { rm ${workspaceFolder}\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.all.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            },
+            "linux": {
+                "command": "rm -rf ${workspaceFolder}/StrykerOutput && dotnet stryker --open-report --config-file stryker-config.all.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "unit test",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=Unit",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=Unit",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "unit test (watch)",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=Unit",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=Unit",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": {
+                "base": "$msCompile",
+                "background": {
+                    "beginsPattern": {
+                        "regexp": "dotnet watch 🚀"
+                    },
+                    "endsPattern": {
+                        "regexp": "dotnet watch [❌⌚]"
+                    }
+                }
+            },
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "unit test (mutation)",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\StrykerOutput) { rm ${workspaceFolder}\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.unit.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            },
+            "linux": {
+                "command": "rm -rf ${workspaceFolder}/StrykerOutput && dotnet stryker --open-report --config-file stryker-config.unit.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "integration test",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=Integration",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=Integration",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "integration test (watch)",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=Integration",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=Integration",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": {
+                "base": "$msCompile",
+                "background": {
+                    "beginsPattern": {
+                        "regexp": "dotnet watch 🚀"
+                    },
+                    "endsPattern": {
+                        "regexp": "dotnet watch [❌⌚]"
+                    }
+                }
+            },
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "integration test (mutation)",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\StrykerOutput) { rm ${workspaceFolder}\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.integration.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            },
+            "linux": {
+                "command": "rm -rf ${workspaceFolder}/StrykerOutput && dotnet stryker --open-report --config-file stryker-config.integration.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "functional test",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=Functional",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=Functional",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "functional test (watch)",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\test\\EolSampleProj.Tests\\EolSampleProj.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=Functional",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "linux": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}/test/EolSampleProj.Tests/EolSampleProj.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=Functional",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=${workspaceFolder}/EolSampleProj.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": {
+                "base": "$msCompile",
+                "background": {
+                    "beginsPattern": {
+                        "regexp": "dotnet watch 🚀"
+                    },
+                    "endsPattern": {
+                        "regexp": "dotnet watch [❌⌚]"
+                    }
+                }
+            },
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "functional test (mutation)",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\StrykerOutput) { rm ${workspaceFolder}\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.functional.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            },
+            "linux": {
+                "command": "rm -rf ${workspaceFolder}/StrykerOutput && dotnet stryker --open-report --config-file stryker-config.functional.json",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "publish linux (x64)",
+            "type": "shell",
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "windows": {
+                "command": "dotnet publish src\\EolSampleProj\\EolSampleProj.csproj -c Release -r linux-x64 --self-contained -o src\\EolSampleProj\\bin\\Release\\net7.0\\linux-x64\\ /p:PublishSingleFile=true"
+            },
+            "linux": {
+                "command": "dotnet publish src/EolSampleProj/EolSampleProj.csproj -c Release -r linux-x64 --self-contained -o src/EolSampleProj/bin/Release/net7.0/linux-x64/ /p:PublishSingleFile=true"
+            }
+        },
+        {
+            "label": "publish windows (x64)",
+            "type": "shell",
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile",
+            "windows": {
+                "command": "dotnet publish src\\EolSampleProj\\EolSampleProj.csproj -c Release -r win10-x64 --self-contained -o src\\EolSampleProj\\bin\\Release\\net7.0\\win10-x64\\ /p:PublishSingleFile=true"
+            },
+            "linux": {
+                "command": "dotnet publish src/EolSampleProj/EolSampleProj.csproj -c Release -r win10-x64 --self-contained -o src/EolSampleProj/bin/Release/net7.0/win10-x64/ /p:PublishSingleFile=true"
+            }
+        },
+    ]
+}

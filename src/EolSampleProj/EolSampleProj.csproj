@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Version>0.0.0</Version>
+    <Authors>Carlos Adriano Portes</Authors>
+    <Company>Codelitt</Company>
+    <Product>EolSampleProj</Product>
+    <PackageId>EolSampleProj</PackageId>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>EolSampleProj API</Description>
+    <Copyright>Codelitt</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <RepositoryUrl>https://github.com/xcap2000/EolSampleProj</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags></PackageTags>
+    <PackageReleaseNotes>Release</PackageReleaseNotes>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>EolSampleProj</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <CodeAnalysisRuleSet>EolSampleProj.ruleset</CodeAnalysisRuleSet>
+    <GenerateFullPaths>true</GenerateFullPaths>
+    <AssemblyName>EolSampleProj</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.8.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" />
+    <PackageReference Include="Roslynator.Analyzers" Version="4.6.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.6.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <!-- Uncomment to use Entity Framework be able to add migrations -->
+    <!-- <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.14" /> -->
+    <!-- Uncomment to use the desired Entity Framework/Database -->
+    <!-- <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.14" /> -->
+    <!-- <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" /> -->
+    <!-- <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" /> -->
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+{
+    "coverage-gutters.coverageFileNames": [
+        "EolSampleProj.info"
+    ],
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "fullSolution",
+    "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "fullSolution",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.vscode": true,
+        "**/.vs": true,
+        "**/.gitignore": true,
+        "**/global.json": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/*.ruleset": true,
+        "**/.config": true,
+        "**/EolSampleProj.info": true,
+        "**/stryker-config.unit.json": true,
+        "**/stryker-config.integration.json": true,
+        "**/stryker-config.functional.json": true,
+        "**/stryker-config.all.json": true,
+        "**/CHANGELOG.md": true,
+        "**/CONTRIBUTING.md": true,
+        "**/TODO.md": true,
+        "**/README.md": true,
+        "**/appsettings.Production.json": true,
+        "**/appsettings.Staging.json": true,
+        "**/appsettings.Development.json": true,
+        "**/appsettings.json": true,
+        "**/StrykerOutput": true,
+        "**/.editorconfig": true,
+        "**/.gitattributes": true
+    },
+    "task.autoDetect": "off"
+}

@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csdevkit",
+        "ryanluker.vscode-coverage-gutters",
+        "eamodio.gitlens",
+        "ow.vscode-subword-navigation",
+        "Gruntfuggly.todo-tree",
+        "amodio.toggle-excluded-files",
+        "pflannery.vscode-versionlens",
+        "oderwat.indent-rainbow",
+        "ms-azuretools.vscode-docker",
+        "humao.rest-client"
+    ]
+}

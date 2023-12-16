@@ -1,0 +1,9 @@
+{
+    "stryker-config": {
+        "solution": "EolSampleProj.sln",
+        "project": "EolSampleProj.csproj",
+        "reporters": [
+            "html"
+        ]
+    }
+}
